@@ -113,31 +113,33 @@ namespace TensorFlowLite.Native
 #endif
         /// <summary>
         /// The TensorFlow Lite Runtime version.
-        ///
-        /// Returns a pointer to a statically allocated string that is the version
-        /// number of the (potentially dynamically loaded) TF Lite Runtime library.
-        /// TensorFlow Lite uses semantic versioning, and the return value should be
-        /// in semver 2 format http://semver.org, starting with MAJOR.MINOR.PATCH,
-        /// e.g. "2.12.0" or "2.13.0-rc2".
         /// </summary>
+        /// <returns>
+        /// Returns a pointer to a statically allocated string that is the version <br/>
+        /// number of the (potentially dynamically loaded) TF Lite Runtime library. <br/>
+        /// TensorFlow Lite uses semantic versioning, and the return value should be <br/>
+        /// in semver 2 format http://semver.org, starting with MAJOR.MINOR.PATCH, <br/>
+        /// e.g. "2.12.0" or "2.13.0-rc2".
+        /// </returns>
         [DllImport(TensorFlowLiteLibraryName, CallingConvention = CallingConvention.Cdecl)]
 
         public static extern byte* TfLiteVersion();
         /// <summary>
         /// The supported TensorFlow Lite model file Schema version.
-        ///
-        /// Returns the (major) version number of the Schema used for model
-        /// files that is supported by the (potentially dynamically loaded)
-        /// TensorFlow Lite Runtime.
-        ///
-        /// Model files using schema versions different to this may not be supported by
-        /// the current version of the TF Lite Runtime.
         /// </summary>
+        /// <returns>
+        /// Returns the (major) version number of the Schema used for model <br/>
+        /// files that is supported by the (potentially dynamically loaded) <br/>
+        /// TensorFlow Lite Runtime. <br/>
+        /// <br/>
+        /// Model files using schema versions different to this may not be supported by <br/>
+        /// the current version of the TF Lite Runtime. <br/>
+        /// </returns>
         [DllImport(TensorFlowLiteLibraryName, CallingConvention = CallingConvention.Cdecl)]
         public static extern nint TfLiteSchemaVersion();
-        /// <summary>
+        /// <returns>
         /// Returns a model from the provided buffer, or null on failure.
-        /// </summary>
+        /// </returns>
         /// <remarks>
         /// The caller retains ownership of the <paramref name="model_data"/> buffer and should
         /// ensure that the lifetime of the <paramref name="model_data"/> buffer must be at least as long
